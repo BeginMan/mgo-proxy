@@ -1,0 +1,31 @@
+{
+  "name": "mgo-rest",
+  "version": "1.0.0",
+  "description": "mongodb restful api",
+  "main": "index.js",
+  "dependencies": {
+    "generic-pool": "^3.4.0",
+    "koa": "^2.4.1",
+    "koa-logger": "^3.1.0",
+    "koa-router": "^7.3.0",
+    "mongodb": "^3.0.1",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-strict-mode": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm run build && node dist/index.js"
+  },
+  "author": "beginman",
+  "license": "ISC"
+}
