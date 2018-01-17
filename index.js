@@ -10,6 +10,20 @@ const app = new koa();
 app.use(logger());
 app.use(mongo());
 
+
+// handler errror
+const handler = async (ctx, next) => {
+  try {
+    await next();
+  } catch(err) {
+    ctx.response.status = err.statusCode || err.status || 500;
+    ctx.response.body = {'errmsg': err.message}
+    ctx.app.emit('error', err, ctx);
+  }
+}
+
+app.use(handler);
+
 var router = new Router({
   prefix: '/api/mgo'
 });
@@ -23,6 +37,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(8765, () => {
-  console.log('listening on port 8765');
+app.listen(8700, () => {
+  console.log('listening on port 8700');
 });

@@ -11,15 +11,15 @@ $ npm start
 Specify the mongodb database and collection to query:
 
 ```bash
-curl 'http://localhost:8765/api/mgo/{DB}/{Collection}'
+curl 'http://localhost:8700/api/mgo/{DB}/{Collection}'
 ```
 
 # Example:
 
 ```bash
 # query all
-$  curl 'http://localhost:8765/api/mgo/test/coll'
+$  curl 'http://localhost:8700/api/mgo/test/coll'
 
 # query conditions
-$  curl 'http://localhost:8765/api/mgo/test/coll?name=Kili'
+$  curl 'http://localhost:8700/api/mgo/test/coll?name=Kili'
 ```
