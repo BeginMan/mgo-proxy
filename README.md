@@ -22,4 +22,10 @@ $  curl 'http://localhost:8700/api/mgo/test/coll'
 
 # query conditions
 $  curl 'http://localhost:8700/api/mgo/test/coll?name=Kili'
+
+# query by type, default is string
+$ curl "127.0.0.1:8700/api/mgo/test/coll?age=50&type=int"
+
+# post query
+$ curl -H 'Content-Type:application/json' -X POST http://localhost:8700/api/mgo/test/coll -d '{"age":{"$gt": 50}}'
 ```
