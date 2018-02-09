@@ -1,7 +1,7 @@
 # mgo-proxy
-Mongodb proxy using restful-api
+Mongodb proxy using restful-api on node v8.0+
 
-# Usage:
+## Usage:
 
 ```bash
 $ npm install
@@ -14,7 +14,9 @@ Specify the mongodb database and collection to query:
 curl 'http://localhost:8700/api/mgo/{DB}/{Collection}'
 ```
 
-# Example:
+## Example:
+
+Query default limit size 1000 and naturally sorted
 
 ```bash
 # query all

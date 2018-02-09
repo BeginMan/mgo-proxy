@@ -12,6 +12,8 @@ app.use(logger());
 app.use(mongo());
 app.use(bodyParser());
 
+const LIMIT = 100;              // limit size
+const SORT = {'$natural': -1};  // natural sort
 
 // handler errror
 const handler = async (ctx, next) => {
@@ -56,7 +58,7 @@ router.get('/:db/:collection', async (ctx, next) =>{
     }
   }
   const collection = ctx.mongo.db(ctx.params.db).collection(ctx.params.collection);
-  let res = await collection.find(queryData).toArray();
+  let res = await collection.find(queryData).sort(SORT).limit(LIMIT).toArray();
   ctx.body = {'data': res}
 });
 
@@ -64,7 +66,7 @@ router.post('/:db/:collection', async (ctx, next) =>{
   ctx.response.type = 'json';
   const collection = ctx.mongo.db(ctx.params.db).collection(ctx.params.collection);
   let body = ctx.request.body;
-  let res = await collection.find(body).toArray();
+  let res = await collection.find(body).sort(SORT).limit(LIMIT).toArray();
   ctx.body = {'data': res}
 });
 
